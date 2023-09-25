@@ -12,7 +12,7 @@ import java.util.List;
 
 @WebServlet(name = "AddToCartServlet", value = "/addToCart")
 public class AddToCartServlet extends HttpServlet {
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("name");
         double price = Double.parseDouble(request.getParameter("price"));
 
@@ -20,10 +20,10 @@ public class AddToCartServlet extends HttpServlet {
         List<Product> cartItems = (List<Product>) session.getAttribute("cartItems");
         if (cartItems == null) {
             cartItems = new ArrayList<>();
+            session.setAttribute("cartItems", cartItems);
         }
         cartItems.add(new Product(name, price));
-        session.setAttribute("cartItems", cartItems);
 
-        response.sendRedirect("cart.jsp");
+        response.sendRedirect("products.jsp");
     }
 }
