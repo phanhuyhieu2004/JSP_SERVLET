@@ -13,11 +13,14 @@ import java.util.List;
 @WebServlet(name = "ProductServlet", value = "/hi")
 public class ProductServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html; charset=UTF-8");
+
+        request.setCharacterEncoding("UTF-8");
         List<Product> productList = new ArrayList<>();
-        productList.add(new Product("Váy sexy gợi cảm", 50000.0));
-        productList.add(new Product("3 con sói có gai", 100.0));
-        productList.add(new Product("Bikini 2 mảnh", 200.0));
-        productList.add(new Product("Aó tắm", 300.0));
+        productList.add(new Product("Máy sấy tóc", 50000.0));
+        productList.add(new Product("Máy cắt cỏ", 100.0));
+        productList.add(new Product("Máy chiếu", 200.0));
+        productList.add(new Product("Máy tính", 300.0));
 
         HttpSession session = request.getSession();
         session.setAttribute("productList", productList);
