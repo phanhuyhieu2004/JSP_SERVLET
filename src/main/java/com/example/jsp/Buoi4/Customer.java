@@ -1,4 +1,4 @@
-package Buoi4;
+package com.example.jsp.Buoi4;
 
 public class Customer {
     private int id;
