@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CustomerServiceImpl implements CustomerService{
+public class CustomerServiceImpl implements CustomerService {
 
     private static Map<Integer, Customer> customers;
 
@@ -44,5 +44,20 @@ public class CustomerServiceImpl implements CustomerService{
     public void remove(int id) {
         customers.remove(id);
     }
+
+    @Override
+    public List<Customer> findByName(String name) {
+        List<Customer> result = new ArrayList<>();
+        for (Customer customer : customers.values()) {
+            if (customer.getName().equalsIgnoreCase(name)) {
+                result.add(customer);
+            }
+        }
+        return result;
+    }
 }
+
+
+
+
 

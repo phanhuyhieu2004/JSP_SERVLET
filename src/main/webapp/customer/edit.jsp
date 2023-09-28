@@ -19,11 +19,11 @@
     </c:if>
 </p>
 <p>
-    <a href="customers">Back to customer list</a>
+    <a href="customers">Quay về list thôi</a>
 </p>
 <form method="post">
     <fieldset>
-        <legend>Customer information</legend>
+        <legend>Thông tin KH</legend>
         <table>
             <tr>
                 <td>Name: </td>
@@ -39,7 +39,7 @@
             </tr>
             <tr>
                 <td></td>
-                <td><input type="submit" value="Update customer"></td>
+                <td><input type="submit" value="Cập nhật KH"></td>
             </tr>
         </table>
     </fieldset>

@@ -9,17 +9,17 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Deleting customer</title>
+    <title>Xóa KH</title>
 </head>
 <body>
-<h1>Delete customer</h1>
+<h1>Xóa KH</h1>
 <p>
-    <a href="customers">Back to customer list</a>
+    <a href="customers">Quay về list</a>
 </p>
 <form method="post">
-    <h3>Are you sure?</h3>
+    <h3>Bạn có chac muốn xóa không?</h3>
     <fieldset>
-        <legend>Customer information</legend>
+        <legend>Thông tin của KH là</legend>
         <table>
             <tr>
                 <td>Name: </td>
@@ -34,8 +34,8 @@
                 <td>${requestScope["customer"].getAddress()}</td>
             </tr>
             <tr>
-                <td><input type="submit" value="Delete customer"></td>
-                <td><a href="customers">Back to customer list</a></td>
+                <td><input type="submit" value="Xóa KH"></td>
+                <td><a href="customers">Quay về list </a></td>
             </tr>
         </table>
     </fieldset>

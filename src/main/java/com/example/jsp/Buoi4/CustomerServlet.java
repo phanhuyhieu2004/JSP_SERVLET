@@ -76,7 +76,7 @@ public class CustomerServlet extends HttpServlet {
             customer.setAddress(address);
             this.customerService.update(id, customer);
             request.setAttribute("customer", customer);
-            request.setAttribute("message", "Customer information was updated");
+            request.setAttribute("message", "Thông tin về khách hàng được cập nhật");
             dispatcher = request.getRequestDispatcher("customer/edit.jsp");
         }
         try {
@@ -99,7 +99,7 @@ public class CustomerServlet extends HttpServlet {
         Customer customer = new Customer(id, name, email, address);
         this.customerService.save(customer);
         RequestDispatcher dispatcher = request.getRequestDispatcher("customer/create.jsp");
-        request.setAttribute("message", "New customer was created");
+        request.setAttribute("message", "Tạo 1 khách hàng mới");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException e) {
@@ -108,7 +108,6 @@ public class CustomerServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
-
 
 
     @Override
@@ -214,7 +213,15 @@ public class CustomerServlet extends HttpServlet {
 
     // Phương thức trả về trang list.jsp để hiển thị toàn bộ customer.
     private void listCustomers(HttpServletRequest request, HttpServletResponse response) {
-        List<Customer> customers = this.customerService.findAll();
+        String searchName = request.getParameter("searchName");
+
+        List<Customer> customers;
+        if (searchName != null && !searchName.isEmpty()) {
+            customers = this.customerService.findByName(searchName);
+        } else {
+            customers = this.customerService.findAll();
+        }
+
         request.setAttribute("customers", customers);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("customer/list.jsp");
@@ -225,6 +232,7 @@ public class CustomerServlet extends HttpServlet {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 }
 

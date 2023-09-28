@@ -7,10 +7,33 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
-    <title>$Title$</title>
-  </head>
-  <body>
-  $END$
-  </body>
+<head>
+    <title>Xem sp</title>
+</head>
+<body>
+<h1>Thông tin chi tiết</h1>
+<p>
+    <a href="products">Quay về sp</a>
+</p>
+
+<table>
+    <tr>
+        <td>Name: </td>
+        <td>${requestScope["product"].getName()}</td>
+    </tr>
+    <tr>
+        <td>Price: </td>
+        <td>${requestScope["product"].getPrice()}</td>
+    </tr>
+    <tr>
+        <td>Information: </td>
+        <td>${requestScope["product"].getInformation()}</td>
+    </tr>
+    <tr>
+        <td>Producer: </td>
+        <td>${requestScope["product"].getProducer()}</td>
+    </tr>
+</table>
+</body>
 </html>
+

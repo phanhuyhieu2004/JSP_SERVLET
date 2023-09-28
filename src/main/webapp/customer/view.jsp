@@ -9,12 +9,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>View customer</title>
+    <title>Chi tiết KH</title>
 </head>
 <body>
-<h1>Customer details</h1>
+<h1>Thông tin mặc định</h1>
 <p>
-    <a href="customers">Back to customer list</a>
+    <a href="customers">Quay về list</a>
 </p>
 <table>
     <tr>

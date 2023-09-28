@@ -24,16 +24,24 @@
             margin-bottom: 10px;
         }
     </style>
-    <title>Customer List</title>
+    <title>Danh sách KH</title>
 </head>
+<%--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">--%>
+
 <body>
 
-<h1>Customers</h1>
+<h1>Khách Hàng</h1>
 
 <p>
-    <a href="/customers?action=create" style="align-content: center">Create new customer </a></p>
+    <a href="/customers?action=create" style="align-content: center">Tạo 1 KH  </a></p>
+<form action="customers" method="GET">
+    <input type="text" name="searchName" placeholder="Enter name">
+    <button type="submit">Search</button>
+</form>
 
-<table border="1 ">
+
+<div align="center">
+<table border="10">
     <tr>
         <td>Name</td>
         <td>Email</td>
@@ -51,6 +59,9 @@
         </tr>
     </c:forEach>
 </table>
+</div>
+<a href="http://localhost:8080/customers">Quay lại</a>
+
 </body>
 </html>
 

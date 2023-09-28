@@ -10,7 +10,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Create new customer</title>
+    <title>Tạo 1 KH</title>
     <style>
         .message{
             color:green;
@@ -18,7 +18,7 @@
     </style>
 </head>
 <body>
-<h1>Create new customer</h1>
+<h1>TẠO KH MỚI</h1>
 <p>
     <c:if test='${requestScope["message"] != null}'>
         <span class="message">${requestScope["message"]}</span>
@@ -29,7 +29,7 @@
 </p>
 <form method="post">
     <fieldset>
-        <legend>Customer information</legend>
+        <legend>Thông tin KH </legend>
         <table>
             <tr>
                 <td>Name: </td>
