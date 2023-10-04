@@ -129,7 +129,8 @@ public class UserDAO implements IUserDAO {
     @Override
     public boolean deleteUser(int id) throws SQLException {
         boolean rowDeleted;
-        try (Connection connection = getConnection(); PreparedStatement statement = connection.prepareStatement(DELETE_USERS_SQL)) {
+        try (Connection connection = getConnection();
+             PreparedStatement statement = connection.prepareStatement(DELETE_USERS_SQL)) {
             statement.setInt(1, id);
             // Thiết lập giá trị tham số trong truy vấn SQL (id người dùng)
             rowDeleted = statement.executeUpdate() > 0;
@@ -239,8 +240,6 @@ public class UserDAO implements IUserDAO {
         }
 
     }
-
-
 
 
     @Override
@@ -453,7 +452,6 @@ public class UserDAO implements IUserDAO {
             psInsert.execute();
 
 
-
             psInsert.setString(1, "Ngan");
 
             psInsert.setBigDecimal(2, new BigDecimal(20));
@@ -461,7 +459,6 @@ public class UserDAO implements IUserDAO {
             psInsert.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
 
             psInsert.execute();
-
 
 
 // Chạy danh sách lệnh cập nhật
@@ -474,7 +471,6 @@ public class UserDAO implements IUserDAO {
             psUpdate.setBigDecimal(1, new BigDecimal(999.99));
 
 
-
             //psUpdate.setBigDecimal(1, new BigDecimal(999.99));
 
             psUpdate.setString(2, "Quynh");
@@ -482,13 +478,11 @@ public class UserDAO implements IUserDAO {
             psUpdate.execute();
 
 
-
 // kết thúc khối giao tác, cam kết thay đổi
             conn.commit();
 
 // cách tốt nhất là đặt nó về mặc định đúng
             conn.setAutoCommit(true);
-
 
 
         } catch (Exception e) {
@@ -501,6 +495,62 @@ public class UserDAO implements IUserDAO {
 
     }
 
+    @Override
+    public List<User> getUsers() {
+        String query = "{CALL getUsers()}";
+
+        List<User> users = new ArrayList<>();
+        try (Connection connection = getConnection();
+             CallableStatement statement = connection.prepareCall(query);
+             ResultSet resultSet = statement.executeQuery(query)) {
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                String email = resultSet.getString("email");
+                String country = resultSet.getString("country");
+                users.add(new User(id, name, email, country));
+            }
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+        return users;
+    }
 
 
+    @Override
+    public void updateUser(int id, String name, String email, String country) {
+        String query = "{CALL updateUser(?,?,?,?)}";
+
+
+        try (Connection connection = getConnection();
+             CallableStatement statement = connection.prepareCall(query)) {
+            statement.setInt(1, id);
+            statement.setString(2, name);
+            statement.setString(3, email);
+            statement.setString(4, country);
+
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+    }
+
+    // Triển khai phương thức deleteUser()
+    @Override
+    public void deleteUsers(int id) {
+        String query = "{CALL deleteUser(?)}";
+
+        try (Connection connection = getConnection();
+             CallableStatement statement = connection.prepareCall(query)) {
+
+            statement.setInt(1, id);
+
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+
+
+    }
 }

@@ -8,8 +8,9 @@
 </head>
 <style>
     body{
-        background-image: url("https://hoanghamobile.com/tin-tuc/wp-content/uploads/2023/07/anh-anime-nu-25.jpg") ;
+        background-image: url("https://bloganchoi.com/wp-content/uploads/2023/03/nobita-sky-utopia-doraemon-thumb.jpg") ;
         background-size: cover;
+
     }
 </style>
 <body>
@@ -36,7 +37,7 @@
 
 
 </center>
-<div class="container mt-4">
+<div class="container mt-4" >
     <table class="table table-bordered table-striped">
         <thead>
         <tr>
@@ -74,7 +75,10 @@
     
 </div>
 </content>
-<img style="background-color: aliceblue" src="http://forum.knightageonline.com/app/view/forum/15345569196030.png">
+<%--<div align="center">--%>
+<%--    <img style="background-color: aliceblue" src="https://i0.wp.com/i448.photobucket.com/albums/qq201/Pepro1912/ANIMATION/Doraemon/103123.gif">--%>
+
+<%--</div>--%>
 
 
 

@@ -15,6 +15,11 @@ public interface IUserDAO {
     public List<User> selectAllUsers();
 
 
+    List<User> getUsers();
+
+    void updateUser(int id, String name, String email, String country);
+
+    // Triển khai phương thức deleteUser()
     public boolean deleteUser(int id) throws SQLException;
 
 
@@ -28,6 +33,9 @@ public interface IUserDAO {
 
 
     public void insertUpdateUseTransaction();
+
+    // Triển khai phương thức deleteUser()
+    void deleteUsers(int id);
 }
 //interface`IUserDAO` có mục đích là định nghĩa các phương thức để tương tác với cơ sở dữ liệu liên quan đến người dùng (user). Nó cung cấp một khung (contract) cho các lớp DAO (Data Access Object) để triển khai các phương thức này.
 
