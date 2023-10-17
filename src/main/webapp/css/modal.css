@@ -1,0 +1,81 @@
+*{
+    box-sizing: border-box;
+}
+html{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.intro{
+    background-color: #ddd;
+    height: 660px;
+}
+.row{
+    width: 101%;
+}
+.text .fc{
+    letter-spacing: 3px;
+    font-family: 'Aladin', cursive;
+    font-size: 45px;
+
+    margin-top: 220px;
+    padding-left: 210px;
+}
+input[type="text"],
+input[type="password"]{
+    width: 240px;
+    height: 30px;
+    outline: none;
+    border: 0.5px solid #222;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    margin-top: 0px;
+    font-size: 16px;
+    padding-left: 10px;
+}
+.button-login{
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 60px;
+    padding-right: 60px;
+    color: #bbb;
+    text-decoration: none;
+    border-radius: 10px;
+    background: #666;
+    margin-left: 210px;
+    margin-top: 30px;
+}
+.button-login:hover{
+    box-shadow: 5px 5px 10px #999;
+    color: #fff;
+}
+img{
+    margin-left: 550px;
+    margin-top: -295px;
+}
+.modal-title{
+    margin-left: 140px;
+    font-size: 45px;
+    letter-spacing: 2px;
+    font-family: 'Teko', sans-serif;
+}
+.modal-body{
+    margin-left: 120px;
+}
+.btn{
+    margin-top: 10px;
+    width: 240px;
+}
+.foot{
+    margin-bottom: 20px;
+}
+.new-acc{
+    text-decoration: none;
+    position: relative;
+    font-size: 16px;
+    color: rgb(128, 128, 128);
+    top: 20px;
+}
+.new-acc:hover{
+    color: #ff0000;
+}
